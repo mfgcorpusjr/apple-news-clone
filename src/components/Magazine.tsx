@@ -16,12 +16,14 @@ export default function Magazine({ magazine }: MagazineProps) {
     <View style={styles.container}>
       <Image style={styles.image} source={{ uri: magazine.image }} />
 
-      <Text style={styles.title}>{magazine.title}</Text>
+      <View style={{ gap: 4 }}>
+        <Text style={styles.title}>{magazine.title}</Text>
 
-      <FollowButton
-        isFollowing={isFollowing}
-        onPress={() => setIsFollowing((v) => !v)}
-      />
+        <FollowButton
+          isFollowing={isFollowing}
+          onPress={() => setIsFollowing((v) => !v)}
+        />
+      </View>
     </View>
   );
 }
@@ -30,6 +32,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     gap: 8,
+    marginBottom: 12,
   },
   image: {
     flex: 1,
