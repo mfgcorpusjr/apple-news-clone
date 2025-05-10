@@ -18,7 +18,7 @@ export default function SectionHeader({ title }: SectionHeaderProps) {
   }
 
   return (
-    <View style={styles.container}>
+    <View>
       <Text style={[styles.title, { color }]}>{title}</Text>
       {subTitle && <Text style={styles.subTitle}>{subTitle}</Text>}
     </View>
@@ -26,9 +26,6 @@ export default function SectionHeader({ title }: SectionHeaderProps) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    marginBottom: 16,
-  },
   title: {
     fontSize: 28,
     fontWeight: "800",
