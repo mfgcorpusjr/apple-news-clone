@@ -1,17 +1,28 @@
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, SectionList } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+
+import MainNewsListItem from "@/components/MainNewsListItem";
+
+import homeNews from "@assets/data/home-news.json";
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <Text>Home Screen</Text>
-    </View>
+    <SafeAreaView style={{ flex: 1 }} edges={["top"]}>
+      <View style={{ flex: 1 }}>
+        <SectionList
+          sections={homeNews}
+          renderItem={({ item }) => <MainNewsListItem news={item} />}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.newsContainer}
+        />
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+  newsContainer: {
+    paddingHorizontal: 12,
+    gap: 12,
   },
 });
