@@ -27,7 +27,7 @@ export default function SectionHeader({ title }: SectionHeaderProps) {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 8,
+    marginBottom: 16,
   },
   title: {
     fontSize: 28,

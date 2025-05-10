@@ -1,6 +1,8 @@
 import { StyleSheet, View, SectionList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { format } from "date-fns";
 
+import ListHeader from "@/components/ListHeader";
 import SectionHeader from "@/components/SectionHeader";
 import MainNewsListItem from "@/components/MainNewsListItem";
 
@@ -12,6 +14,9 @@ export default function HomeScreen() {
       <View style={{ flex: 1 }}>
         <SectionList
           sections={homeNews}
+          ListHeaderComponent={
+            <ListHeader title="News" subTitle={format(new Date(), "MMM dd")} />
+          }
           renderSectionHeader={({ section }) => (
             <SectionHeader title={section.title} />
           )}
