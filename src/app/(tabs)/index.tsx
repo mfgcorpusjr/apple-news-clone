@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import ListHeader from "@/components/ListHeader";
 import SectionHeader from "@/components/SectionHeader";
 import MainNewsListItem from "@/components/MainNewsListItem";
+import TrendingStoriesNewsListItem from "@/components/TrendingStoriesNewsListItem";
 import ForYouNewsListItem from "@/components/ForYouNewsListItem";
 
 import homeNews from "@assets/data/home-news.json";
@@ -21,7 +22,9 @@ export default function HomeScreen() {
           renderSectionHeader={({ section }) => (
             <SectionHeader title={section.title} />
           )}
-          renderItem={({ item }) => <ForYouNewsListItem news={item} />}
+          renderItem={({ item, index }) => (
+            <TrendingStoriesNewsListItem number={index + 1} news={item} />
+          )}
           stickySectionHeadersEnabled={false}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.newsContainer}

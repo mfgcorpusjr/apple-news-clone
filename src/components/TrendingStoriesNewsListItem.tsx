@@ -1,17 +1,23 @@
-import { StyleSheet, View, Image, Text } from "react-native";
+import { StyleSheet, View, Text, Image } from "react-native";
 
 import NewsFooter from "@/components/NewsFooter";
 
 import { News } from "@/types";
 
-type MainNewsListItemProps = {
+type TrendingStoriesNewsListItemProps = {
+  number: number;
   news: News;
 };
 
-export default function MainNewsListItem({ news }: MainNewsListItemProps) {
+export default function TrendingStoriesNewsListItem({
+  number,
+  news,
+}: TrendingStoriesNewsListItemProps) {
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={{ uri: news.image }} />
+      <View style={styles.numberContainer}>
+        <Text style={styles.number}>{number}</Text>
+      </View>
 
       <View style={styles.contentContainer}>
         <View>
@@ -31,24 +37,35 @@ export default function MainNewsListItem({ news }: MainNewsListItemProps) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
-    borderRadius: 12,
-    overflow: "hidden",
+    flexDirection: "row",
+    gap: 16,
   },
-  image: {
-    width: "100%",
-    aspectRatio: 3 / 2,
+  numberContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "orange",
+  },
+  number: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "500",
   },
   contentContainer: {
-    padding: 12,
+    flexShrink: 1,
     gap: 28,
+    paddingBottom: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: "lightgrey",
   },
   logo: {
     width: 60,
     height: 30,
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: "bold",
     marginTop: 4,
   },
