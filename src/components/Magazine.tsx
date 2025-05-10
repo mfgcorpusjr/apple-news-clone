@@ -31,6 +31,7 @@ export default function Magazine({ magazine }: MagazineProps) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    maxWidth: "50%",
     gap: 8,
     marginBottom: 12,
   },
