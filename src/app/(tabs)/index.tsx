@@ -2,7 +2,7 @@ import { StyleSheet, View, SectionList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { format } from "date-fns";
 
-import ListHeader from "@/components/ListHeader";
+import Header from "@/components/Header";
 import SectionHeader from "@/components/SectionHeader";
 import MainNewsListItem from "@/components/MainNewsListItem";
 import TrendingStoriesNewsListItem from "@/components/TrendingStoriesNewsListItem";
@@ -35,7 +35,7 @@ export default function HomeScreen() {
         <SectionList
           sections={homeNews}
           ListHeaderComponent={
-            <ListHeader title="News" subTitle={format(new Date(), "MMM dd")} />
+            <Header title="News" subTitle={format(new Date(), "MMM dd")} />
           }
           renderSectionHeader={({ section }) => (
             <SectionHeader title={section.title} />

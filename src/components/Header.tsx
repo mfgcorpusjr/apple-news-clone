@@ -1,12 +1,12 @@
 import { StyleSheet, View, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-type ListHeaderProps = {
+type HeaderProps = {
   title: string;
   subTitle: string;
 };
 
-export default function ListHeader({ title, subTitle }: ListHeaderProps) {
+export default function Header({ title, subTitle }: HeaderProps) {
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>

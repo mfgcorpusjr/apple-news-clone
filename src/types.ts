@@ -17,3 +17,10 @@ export type News = {
   author: Author;
   publisher: Publisher;
 };
+
+export type Magazine = {
+  id: string;
+  title: string;
+  image: string;
+  isFollowing: boolean;
+};
