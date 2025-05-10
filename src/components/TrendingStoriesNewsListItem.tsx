@@ -1,4 +1,5 @@
-import { StyleSheet, View, Text, Image } from "react-native";
+import { StyleSheet, Pressable, View, Text, Image } from "react-native";
+import { Link } from "expo-router";
 
 import NewsFooter from "@/components/NewsFooter";
 
@@ -14,24 +15,26 @@ export default function TrendingStoriesNewsListItem({
   news,
 }: TrendingStoriesNewsListItemProps) {
   return (
-    <View style={styles.container}>
-      <View style={styles.numberContainer}>
-        <Text style={styles.number}>{number}</Text>
-      </View>
-
-      <View style={styles.contentContainer}>
-        <View>
-          <Image
-            style={styles.logo}
-            source={require("@assets/images/logo.png")}
-            resizeMode="contain"
-          />
-          <Text style={styles.title}>{news.title}</Text>
+    <Link href={`/news/${news.id}`} asChild>
+      <Pressable style={styles.container}>
+        <View style={styles.numberContainer}>
+          <Text style={styles.number}>{number}</Text>
         </View>
 
-        <NewsFooter createdAt={news.created_at} author={news.author} />
-      </View>
-    </View>
+        <View style={styles.contentContainer}>
+          <View>
+            <Image
+              style={styles.logo}
+              source={require("@assets/images/logo.png")}
+              resizeMode="contain"
+            />
+            <Text style={styles.title}>{news.title}</Text>
+          </View>
+
+          <NewsFooter createdAt={news.created_at} author={news.author} />
+        </View>
+      </Pressable>
+    </Link>
   );
 }
 

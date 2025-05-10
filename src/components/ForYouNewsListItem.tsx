@@ -1,4 +1,5 @@
-import { StyleSheet, View, Text, Image } from "react-native";
+import { StyleSheet, Pressable, View, Text, Image } from "react-native";
+import { Link } from "expo-router";
 
 import NewsFooter from "@/components/NewsFooter";
 
@@ -10,22 +11,24 @@ type ForYouNewsListItemProps = {
 
 export default function ForYouNewsListItem({ news }: ForYouNewsListItemProps) {
   return (
-    <View style={styles.container}>
-      <View style={styles.contentContainer}>
-        <View style={{ flexShrink: 1 }}>
-          <Image
-            style={styles.logo}
-            source={require("@assets/images/logo.png")}
-            resizeMode="contain"
-          />
-          <Text style={styles.title}>{news.title}</Text>
+    <Link href={`/news/${news.id}`} asChild>
+      <Pressable style={styles.container}>
+        <View style={styles.contentContainer}>
+          <View style={{ flexShrink: 1 }}>
+            <Image
+              style={styles.logo}
+              source={require("@assets/images/logo.png")}
+              resizeMode="contain"
+            />
+            <Text style={styles.title}>{news.title}</Text>
+          </View>
+
+          <Image style={styles.image} source={{ uri: news.image }} />
         </View>
 
-        <Image style={styles.image} source={{ uri: news.image }} />
-      </View>
-
-      <NewsFooter createdAt={news.created_at} author={news.author} />
-    </View>
+        <NewsFooter createdAt={news.created_at} author={news.author} />
+      </Pressable>
+    </Link>
   );
 }
 
